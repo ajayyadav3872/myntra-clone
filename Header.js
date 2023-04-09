@@ -1,28 +1,34 @@
 import '../App.css';
+import './Header.css';
 
 function Header() {
   return (
-    <div className='flex'>
-      {
-        <div className='left'>
-          <div className='column1'>
-            <img src='https://images.indianexpress.com/2021/01/myntra.png'/>
-          </div>
-          <div className='column2'>MEN</div>
-          <div className='column3'>WOMEN</div>
-          <div className='column4'>KIDS</div>
-          <div className='column5'>HOME & LIVING</div>
-          <div className='column6'>BEAUTY</div>
-          <div className='column7'>STUDIO <sup className='top'>NEW</sup></div>
-          <form className='column8'>
-            <input type="text" placeholder='search for product,brands and more' />
-          </form>
-          <div className='column9'>Proflie</div>
-          <div className='column10'>Wishlist</div>
-          <div className='column11'>Bag</div>
+    <header>
+      <nav className='flex'>
+        <div className='left flex'>
+          <img src='https://logos-world.net/wp-content/uploads/2021/02/New-Myntra-Logo.png' />
+          <ul className='flex uppercase semibold'>
+            <li>Man</li>
+            <li>Women</li>
+            <li>Kids</li>
+            <li>Home&Living</li>
+            <li>Beauty</li>
+            <li>Studio <sup>new</sup></li>
+          </ul>
         </div>
-      }
-    </div>
+        <div className='right flex items-center'>
+          <div className='flex searchBox'>
+            <img src='https://img.myloview.com/posters/search-icon-magnifying-glass-icon-vector-magnifier-or-loupe-sign-400-171117509.jpg' />
+            <div className='searchIcons'>
+              <input className='searchBar' type='text' placeholder='Search for products,brands and more' />
+            </div>
+          </div>
+          <div className='profile mg-1'>Profile</div>
+          <div className='wishlist mg-1'>Wishlist</div>
+          <div className='bag mg-1'>Bag</div>
+        </div>
+      </nav>
+    </header>
   );
 }
 
