@@ -1,59 +1,108 @@
-// import logo from './logo.svg';
 import './App.css';
-import Header from './components/Header';
-import ProductList from './components/ProductList';
+import Header from './Components/Header';
+import SideBar from './Components/SideBar';
+import Product from './Components/Items/Product';
 import { useState } from 'react';
 
 function App() {
 
   const [product, setProduct] = useState([
     {
-      url: 'https://rukminim1.flixcart.com/image/612/612/xif0q/shoe/e/y/j/-original-imagg4zgqyzcynxn.jpeg?q=70',
-      name: 'White Shoes',
-      category: 'Shoes',
-      seller: 'AMZ Seller Mumbai',
-      price: 1999
+      url: 'https://www.jiomart.com/images/product/500x630/rvgtnulkr7/bersache-sports-shoes-for-men-latest-stylish-sports-shoes-for-men-lace-up-lightweight-white-shoes-for-running-walking-gym-trekking-and-hiking-shoes-for-men-product-images-rvgtnulkr7-0-202207131106.jpg',
+      name: 'Shoes',
+      price: 3999
     },
     {
-      url: 'https://n4.sdlcdn.com/imgs/b/x/4/VR-Fashion-Digital-Black-Apple-SDL849617785-1-910cd.jpg',
-      name: 'Black Watch',
-      category: 'Watches',
-      seller: 'AMZ Seller Mumbai',
-      price: 1200
+      url: 'https://rukminim1.flixcart.com/image/850/850/kjlrb0w0-0/watch/l/m/p/queen-dial-black-magnetic-belt-girls-analog-watch-maan-original-imafz4uzmxma9z9h.jpeg?q=90',
+      name: 'Watch',
+      price: 1199
     },
     {
-      url: 'https://m.economictimes.com/thumb/msid-92510378,width-1200,height-900,resizemode-4,imgsize-9834/macbook-pro.jpg',
-      name: 'Apple Laptop 8GB RAM',
-      category: 'Laptop',
-      seller: 'AMZ Seller Mumbai',
+      url: 'https://5.imimg.com/data5/SELLER/Default/2022/11/FH/CG/IX/97646359/apple-macbook-laptop-500x500.jpg',
+      name: 'Laptop',
       price: 120000
     },
     {
-      url: 'https://c8.alamy.com/comp/H8EK8R/cctv-camera-digital-video-recorder-in-car-park-for-security-of-place-H8EK8R.jpg',
-      name: 'Sequrity Camera',
-      category: 'CCTV',
-      seller: 'AMZ Seller Mumbai',
+      url: 'https://static.fibre2fashion.com/MemberResources/LeadResources/1/2021/7/Seller/21197859/Images/21197859_0_new-project-2021-07-29t161059-408.jpg',
+      name: 'Ladies Jeans',
       price: 1499
     },
     {
-      url: 'https://rukminim1.flixcart.com/image/832/832/xif0q/shopsy-t-shirt/x/g/8/xl-skb-try-this-original-imag6hqngemxvfst-bb.jpeg?q=70',
-      name: 'T-shirt white',
-      category: 'Men & Women',
-      seller: 'AMZ Seller Mumbai',
-      price: 499
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLl1kfH0DRp_Y7eZ2GKmjkm1GZugFn0g-56s83wI5YkHv7Zq1aRZoMiJrhXmqYb4Ax97m7oLy7aoI&usqp=CAU&ec=48665701',
+      name: 'Flip-Flop',
+      price: 749
     },
     {
-      url: 'https://images.bestsellerclothing.in/data/JJ/10-oct-2022/276260503_g1.jpg?width=1080&height=1090&mode=fill&fill=blur&format=auto',
-      name: 'Denim Jaket',
-      category: 'Men',
-      seller: 'AMZ Seller Mumbai',
-      price: 1249
-    }
+      url: 'https://i.pinimg.com/736x/9b/96/ea/9b96ea7a89441037f34bdf5f959e2684.jpg',
+      name: 'Men Sandals',
+      price: 699
+    },
+    {
+      url: 'https://m.media-amazon.com/images/I/41MClLF68kL._UL1000_.jpg',
+      name: 'Laptop-Bag',
+      price: 4999
+    },
+    {
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIIG1i8Bjb1lQEk65PAQNHacvWV2iGAh9OUFlq3TVXig&usqp=CAU&ec=48665701',
+      name: 'Shirt',
+      price: 1699
+    },
+    {
+      url: 'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41ven52aeUL.jpg',
+      name: 'T-Shirt',
+      price: 599
+    },
+    {
+      url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR7p8ZklyTuKnXPTC0Jg7Y_j9Bm7b29m_wkmHVPtyM-Q&usqp=CAU&ec=48665701',
+      name: 'Ladies Bag',
+      price: 2499
+    },
+    {
+      url: 'https://droolworthy.in/wp-content/uploads/2021/12/88.jpg',
+      name: 'Dresses',
+      price: 999
+    },
+    {
+      url: 'https://guide.alibaba.com/image/i4/5-kids-childrens-suits-boy-suit-autumn-2016-new-mens-6-fall-sports-piece-10-boys-12-8-children-9-years-old/TB1SMJsLXXXXXXwXXXXXXXXXXXX_!!0-item_pic.jpg',
+      name: 'Kids Wear',
+      price: 1999
+    },
+    {
+      url: 'https://cdn.shopify.com/s/files/1/0682/3755/8034/products/black_solid_cotton_kurta_suit_set_1_1200x.jpg?v=1672231596',
+      name: 'Kurti',
+      price: 1850
+    },
+    {
+      url: 'https://i.pinimg.com/736x/f0/b3/7e/f0b37ed8e828dfc48593a8771920c696--summer-months-shoes-style.jpg',
+      name: 'Women Sandal',
+      price: 849
+    },
+    {
+      url: 'https://i.pinimg.com/474x/12/b3/d1/12b3d1923d42031c7a44c26599d30843.jpg',
+      name: 'Saree',
+      price: 1399
+    },
+    {
+      url: 'https://cpimg.tistatic.com/07466657/b/4/GIRLS-DESIGNER-SHORT-TOPS.jpg',
+      name: 'Top & Tees',
+      price: 699
+    },
+    {
+      url: 'https://sc04.alicdn.com/kf/H3c650dee767a49adaeb63f43ac711e11o.jpg',
+      name: 'Men Jeans',
+      price: 3199
+    },
+    {
+      url: 'https://i.ebayimg.com/images/g/IrIAAOSwHohhCs4V/s-l500.jpg',
+      name: 'Slipper',
+      price: 449
+    },
   ])
   return (
     <div>
-      <Header></Header>
-      <ProductList product={product} ></ProductList>
+      <Header />
+      <SideBar />
+      <Product product={product}></Product>
     </div>
   );
 }
